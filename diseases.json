@@ -1,0 +1,227 @@
+[
+    {
+        "disease": "Acne",
+        "description": "Small, red pimples on the face, chest, or back.",
+        "suggestions": [
+            "Wash face twice daily",
+            "Avoid touching pimples",
+            "Use non-comedogenic products"
+        ]
+    },
+    {
+        "disease": "Eczema",
+        "description": "Red, itchy, inflamed patches of skin.",
+        "suggestions": [
+            "Apply moisturizer regularly",
+            "Avoid hot showers",
+            "Use gentle soap"
+        ]
+    },
+    {
+        "disease": "Psoriasis",
+        "description": "Chronic skin condition causing red, scaly patches.",
+        "suggestions": [
+            "Use medicated creams",
+            "Avoid scratching",
+            "Moisturize frequently"
+        ]
+    },
+    {
+        "disease": "Rosacea",
+        "description": "Redness and visible blood vessels on the face.",
+        "suggestions": [
+            "Use gentle cleansers",
+            "Avoid spicy foods",
+            "Protect skin from sun"
+        ]
+    },
+    {
+        "disease": "Sunburn",
+        "description": "Red, painful skin after sun exposure.",
+        "suggestions": [
+            "Apply aloe vera gel",
+            "Stay hydrated",
+            "Avoid further sun exposure"
+        ]
+    },
+    {
+        "disease": "Contact Dermatitis",
+        "description": "Red, itchy rash caused by contact with irritants.",
+        "suggestions": [
+            "Identify and avoid irritants",
+            "Use fragrance-free products",
+            "Apply topical corticosteroids if needed"
+        ]
+    },
+    {
+        "disease": "Hives",
+        "description": "Raised, itchy welts on the skin.",
+        "suggestions": [
+            "Take antihistamines",
+            "Avoid triggers",
+            "Apply cool compresses"
+        ]
+    },
+    {
+        "disease": "Warts",
+        "description": "Small, rough growths caused by a virus.",
+        "suggestions": [
+            "Use topical wart treatments",
+            "Avoid picking at warts",
+            "Keep affected area clean"
+        ]
+    },
+    {
+        "disease": "Cold Sores",
+        "description": "Blisters caused by herpes simplex virus, usually around lips.",
+        "suggestions": [
+            "Apply antiviral creams",
+            "Avoid touching the sores",
+            "Use sunscreen on lips"
+        ]
+    },
+    {
+        "disease": "Fungal Infection",
+        "description": "Red, itchy, ring-shaped patches caused by fungus.",
+        "suggestions": [
+            "Use antifungal creams",
+            "Keep area dry and clean",
+            "Avoid sharing towels or clothing"
+        ]
+    },
+    {
+        "disease": "Hyperpigmentation",
+        "description": "Darkened patches of skin caused by excess melanin.",
+        "suggestions": [
+            "Use sunscreen daily",
+            "Apply skin-lightening creams",
+            "Avoid picking or scratching"
+        ]
+    },
+    {
+        "disease": "Vitiligo",
+        "description": "Loss of skin pigment resulting in white patches.",
+        "suggestions": [
+            "Use sunscreen to protect depigmented areas",
+            "Consider topical corticosteroids",
+            "Consult dermatologist for treatment options"
+        ]
+    },
+    {
+        "disease": "Seborrheic Dermatitis",
+        "description": "Red, scaly, itchy patches usually on scalp and face.",
+        "suggestions": [
+            "Use medicated shampoos",
+            "Moisturize affected areas",
+            "Avoid harsh soaps"
+        ]
+    },
+    {
+        "disease": "Blackheads",
+        "description": "Clogged pores resulting in small dark spots on the skin.",
+        "suggestions": [
+            "Use salicylic acid cleansers",
+            "Exfoliate gently",
+            "Avoid squeezing blackheads"
+        ]
+    },
+    {
+        "disease": "Whiteheads",
+        "description": "Closed clogged pores appearing as white bumps.",
+        "suggestions": [
+            "Use gentle exfoliation",
+            "Keep skin clean",
+            "Avoid picking at them"
+        ]
+    },
+    {
+        "disease": "Melasma",
+        "description": "Brown or gray patches commonly on face due to sun or hormones.",
+        "suggestions": [
+            "Apply sunscreen daily",
+            "Use brightening creams",
+            "Avoid sun exposure during peak hours"
+        ]
+    },
+    {
+        "disease": "Ringworm",
+        "description": "Fungal infection with circular, itchy patches.",
+        "suggestions": [
+            "Use antifungal creams",
+            "Keep affected area dry",
+            "Avoid sharing personal items"
+        ]
+    },
+    {
+        "disease": "Impetigo",
+        "description": "Highly contagious bacterial skin infection causing sores and blisters.",
+        "suggestions": [
+            "Apply antibiotic ointments",
+            "Keep area clean",
+            "Avoid scratching or touching sores"
+        ]
+    },
+    {
+        "disease": "Shingles",
+        "description": "Painful rash caused by reactivation of the chickenpox virus.",
+        "suggestions": [
+            "Consult a doctor for antiviral treatment",
+            "Keep rash clean and dry",
+            "Avoid scratching"
+        ]
+    },
+    {
+        "disease": "Dermatofibroma",
+        "description": "Firm, small, benign nodules on skin.",
+        "suggestions": [
+            "Usually no treatment required",
+            "Monitor for changes",
+            "Consult dermatologist if irritated"
+        ]
+    },
+    {
+        "disease": "Cherry Angioma",
+        "description": "Small, red, benign skin growths.",
+        "suggestions": [
+            "No treatment needed unless cosmetic concern",
+            "Avoid irritation",
+            "Consult doctor for removal if desired"
+        ]
+    },
+    {
+        "disease": "Actinic Keratosis",
+        "description": "Rough, scaly patches caused by sun damage.",
+        "suggestions": [
+            "Use sunscreen regularly",
+            "Apply topical treatments as prescribed",
+            "Consult dermatologist for monitoring"
+        ]
+    },
+    {
+        "disease": "Cold Urticaria",
+        "description": "Hives or swelling caused by cold exposure.",
+        "suggestions": [
+            "Avoid cold triggers",
+            "Take antihistamines if needed",
+            "Keep warm during exposure"
+        ]
+    },
+    {
+        "disease": "Molluscum Contagiosum",
+        "description": "Viral infection causing small, raised bumps on skin.",
+        "suggestions": [
+            "Avoid scratching bumps",
+            "Consult doctor for removal options",
+            "Keep skin clean"
+        ]
+    },
+    {
+        "disease": "Folliculitis",
+        "description": "Inflamed hair follicles causing red bumps or pustules.",
+        "suggestions": [
+            "Use antiseptic washes",
+            "Avoid tight clothing",
+            "Do not pick or scratch bumps"
+        ]
+    }
+]
