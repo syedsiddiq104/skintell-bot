@@ -399,12 +399,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import json
-import numpy as np
-from pathlib import Path
-from tensorflow.keras.preprocessing import image
-from tensorflow.keras.layers import GlobalAveragePooling2D
-from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.applications import efficientnet_v2
 
 # ---------------------------
 # Flask Setup
@@ -413,13 +407,10 @@ app = Flask(__name__)
 CORS(app)
 
 # ---------------------------
-# Paths (FIXED)
+# Paths
 # ---------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 DISEASES_PATH = os.path.join(BASE_DIR, "diseases.json")
-DB_PATH = os.path.join(BASE_DIR, "cnn_model", "feature_db.npz")
-CLF_PATH = os.path.join(BASE_DIR, "cnn_model", "efficientnetv2_skin_model.h5")
 
 # ---------------------------
 # Load disease DB
@@ -428,46 +419,10 @@ with open(DISEASES_PATH, "r") as f:
     DISEASES = json.load(f)
 
 # ---------------------------
-# Load Feature DB
-# ---------------------------
-db = np.load(DB_PATH, allow_pickle=True)
-FEATURES = db['features'].astype("float32")
-LABELS = db['labels']
-
-FEATURES = np.array([f / (np.linalg.norm(f)+1e-10) for f in FEATURES])
-
-# ---------------------------
-# CNN Feature Extractor
-# ---------------------------
-base = efficientnet_v2.EfficientNetV2S(
-    include_top=False,
-    weights='imagenet',
-    input_shape=(224, 224, 3)
-)
-
-FEAT_MODEL = Model(inputs=base.input,
-                   outputs=GlobalAveragePooling2D()(base.output))
-
-PREPROCESS = efficientnet_v2.preprocess_input
-
-# ---------------------------
-# Load classifier (SAFE)
-# ---------------------------
-CLF = None
-try:
-    if os.path.exists(CLF_PATH):
-        CLF = load_model(CLF_PATH, compile=False)
-        print("Classifier loaded.")
-    else:
-        print("Model not found. Running without classifier.")
-except Exception as e:
-    print("Error loading model:", e)
-
-# ---------------------------
-# SIMPLE RESPONSE (NO LLM)
+# Simple response
 # ---------------------------
 def simple_response(disease):
-    return f"Detected condition: {disease}. Please consult a dermatologist for proper diagnosis and treatment."
+    return f"Detected condition: {disease}. Please consult a dermatologist for proper diagnosis."
 
 # ============================================================
 # CHAT ROUTE
@@ -483,50 +438,20 @@ def chat():
     if msg in ["hi", "hello", "hey"]:
         return jsonify({"reply": "Hey! 👋 How can I help your skin today?"})
 
-    return jsonify({"reply": "I can help with skin-related questions or image predictions."})
+    return jsonify({"reply": "I can help with skin-related questions."})
 
 # ============================================================
-# IMAGE PREDICTION ROUTE
+# PREDICT ROUTE (TEMP DISABLED)
 # ============================================================
 @app.route("/predict", methods=["POST"])
 def predict():
-    if "image" not in request.files:
-        return jsonify({"error": "No image provided"}), 400
-
-    img_file = request.files["image"]
-    img_path = os.path.join("/tmp", img_file.filename)
-    img_file.save(img_path)
-
-    # Process image
-    img = image.load_img(img_path, target_size=(224, 224))
-    arr = image.img_to_array(img)[None]
-    arr_pre = PREPROCESS(arr)
-
-    feat = FEAT_MODEL.predict(arr_pre, verbose=0)[0]
-    feat = feat / (np.linalg.norm(feat) + 1e-10)
-
-    sims = FEATURES.dot(feat)
-    sims_norm = (sims + 1) / 2
-
-    idx = sims_norm.argsort()[-5:][::-1]
-    lbls = LABELS[idx]
-    sim_scores = sims_norm[idx]
-
-    votes = {}
-    for l, w in zip(lbls, sim_scores):
-        votes[l] = votes.get(l, 0) + float(w)
-
-    pred = max(votes.items(), key=lambda x: x[1])[0]
-    confidence = min(1.0, votes[pred] / (sum(sim_scores) + 1e-9))
-
     return jsonify({
-        "disease": pred,
-        "confidence": float(confidence),
-        "message": simple_response(pred)
+        "message": "Prediction feature is disabled in deployed version.",
+        "status": "success"
     })
 
 # ============================================================
-# RUN (RENDER FIX)
+# RUN
 # ============================================================
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
